@@ -18,13 +18,13 @@ Each plot corresponds to one of the true functions \( m_1, m_2, m_3, m_4 \), and
 ### **Figures (generated from the code in the `figures/` directory):**
 
 #### **m1: Linear combination of simplex components**
-![m1](figures/m1.png)
+![m1](m1.png)
 
 #### **m2: Logarithmic surface**
-![m2](figures/m2.png)
+![m2](m2.png)
 
 #### **m3: Interaction surface \(x_1 x_2\)**
-![m3](figures/m3.png)
+![m3](m3.png)
 
 #### **m4: Nonlinear oscillating structure**
-![m4](figures/m4.png)
+![m4](m4.png)
