@@ -15,11 +15,37 @@ In this work, we compare three popular kernel approaches, Aitchison’s logratio
 
 ---
 
-## Repository Structure
+# Repository Structure
 
-```text
-├── R/               # Kernel estimators, bandwidth selection, visualization tools
-├── figures/         # Example ternary plots and generated figures
-├── example/         # Usage examples and reproducible workflows
-└── README.md        # Project description
+This repository is organized into three main components to clearly separate reusable functions, figure-generation scripts, and reproducible examples:
 
+R/
+
+Contains all core R functions used in the paper, including:
+
+Kernel estimators (Dirichlet kernel, logratio-based kernel, and local linear Dirichlet kernel)
+
+Bandwidth selection procedures based on LOOCV
+
+Utility functions for simplex visualization and ternary plots
+These files provide the fundamental methods used throughout the project.
+
+figures/
+
+Includes:
+
+Scripts used to generate the figures shown in the paper
+
+Example plots that demonstrate how the estimators behave under different settings
+These files focus on visualization and graphical diagnostics.
+
+example/
+
+Contains reproducible workflows such as:
+
+Simulation study scripts used to evaluate estimator performance
+
+Code for generating tables included in the manuscript
+
+The real data application using the WHO dataset
+These scripts allow readers to reproduce the empirical results in the paper.
