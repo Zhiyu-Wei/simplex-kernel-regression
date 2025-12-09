@@ -3,8 +3,6 @@
 ##  (English-annotated version)
 ## ============================================================
 
-library(MCMCpack)   # used only if rdirichlet is needed in simulation
-
 
 ## ============================================================
 ## 1. Fast Dirichlet kernel K(U, X)
@@ -163,3 +161,4 @@ build_S_locallinear_dirichlet <- function(X_kern, X_loc, alpha, h) {
   
   S
 }
+
