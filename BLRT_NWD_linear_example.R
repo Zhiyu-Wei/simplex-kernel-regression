@@ -34,7 +34,7 @@ type1error <- 0.05
 ## ============================================================
 ##  Create output directory inside working directory
 ## ============================================================
-base_path <- file.path(getwd(), "BLRT_NWD_results")
+base_path <- file.path(getwd(), "BLRT_NWD_linear_results")
 
 if (!dir.exists(base_path)) {
   dir.create(base_path, recursive = TRUE)
@@ -286,3 +286,4 @@ result_df <- result_df[, c("r1", "r2", "r3",
                            "beta1")]
 
 print(result_df, digits = 3, row.names = FALSE)
+
