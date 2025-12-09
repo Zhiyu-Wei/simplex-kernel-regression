@@ -10,7 +10,7 @@ library(foreach)
 
 ## Source Dirichlet kernel + local linear functions
 ## (make sure the path to the functions file is correct)
-source("https://raw.githubusercontent.com/Zhiyu-Wei/simplex-kernel-regression/R/BLRT_LLD_linear.R")
+source("https://raw.githubusercontent.com/Zhiyu-Wei/simplex-kernel-regression/R/BLRT_LLD.R")
 
 
 ## ================== Simulation parameters ==================
@@ -274,3 +274,4 @@ result_df <- result_df[, c("r1", "r2", "r3",
                            "beta1")]
 
 print(result_df, digits = 3, row.names = FALSE)
+
