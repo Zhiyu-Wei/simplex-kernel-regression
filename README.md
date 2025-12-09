@@ -15,37 +15,33 @@ In this work, we compare three popular kernel approaches, Aitchison’s logratio
 
 ---
 
-# Repository Structure
+## Repository Structure
 
-This repository is organized into three main components to clearly separate reusable functions, figure-generation scripts, and reproducible examples:
+This repository is organized into three main components to separate reusable functions, visualization scripts, and reproducible examples.
 
-R/
+### **R/**
+This folder contains all core R functions used in the project, including:
 
-Contains all core R functions used in the paper, including:
+- Kernel estimation methods (Dirichlet kernel, logratio-based estimator, and local linear Dirichlet kernel)
+- Bandwidth selection procedures based on leave-one-out cross-validation (LOOCV)
+- Visualization and simplex-related utilities for ternary plotting
 
-Kernel estimators (Dirichlet kernel, logratio-based kernel, and local linear Dirichlet kernel)
+These files provide the essential methodological tools used across the analyses.
 
-Bandwidth selection procedures based on LOOCV
+### **figures/**
+This folder includes:
 
-Utility functions for simplex visualization and ternary plots
-These files provide the fundamental methods used throughout the project.
+- Scripts used to generate figures referenced in the paper
+- Example visualization outputs such as ternary plots and smoothing illustrations
 
-figures/
+Files in this directory focus on graphical diagnostics and visual demonstrations.
 
-Includes:
+### **example/**
+This folder contains reproducible workflows and applied scripts, such as:
 
-Scripts used to generate the figures shown in the paper
+- Simulation study code evaluating estimator performance
+- Scripts for producing tables included in the manuscript
+- The real data application using the WHO dataset
 
-Example plots that demonstrate how the estimators behave under different settings
-These files focus on visualization and graphical diagnostics.
+These scripts allow readers to reproduce all empirical results from the study.
 
-example/
-
-Contains reproducible workflows such as:
-
-Simulation study scripts used to evaluate estimator performance
-
-Code for generating tables included in the manuscript
-
-The real data application using the WHO dataset
-These scripts allow readers to reproduce the empirical results in the paper.
