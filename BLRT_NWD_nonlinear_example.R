@@ -37,7 +37,7 @@ rownames(power_result) <- paste0("a=", round(a_seq, 2))
 
 ## ================== Output folder (auto-created) ==================
 ## Results will be saved under the current working directory
-base_path <- file.path(getwd(), "BLRT_NWD_m1_results")
+base_path <- file.path(getwd(), "BLRT_NWD_nonlinear_results")
 
 if (!dir.exists(base_path)) {
   dir.create(base_path, recursive = TRUE)
@@ -242,3 +242,4 @@ result_df$a <- a_seq
 result_df  <- result_df[, c("a", "M1", "M2", "M3", "None", "beta1")]
 
 print(result_df, digits = 3, row.names = FALSE)
+
