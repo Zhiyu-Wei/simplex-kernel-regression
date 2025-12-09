@@ -17,7 +17,9 @@ In this work, we compare three popular kernel approaches, Aitchison’s logratio
 
 ## Repository Structure
 
-├── R/ # R functions for kernel estimators & bandwidth selection & visualization tools
-├── figures/ # Example visualization scripts (ternary plots, etc.)
-├── example/ # Usage examples and reproducible workflows
-└── README.md # Project description
+```text
+├── R/               # Kernel estimators, bandwidth selection, visualization tools
+├── figures/         # Example ternary plots and generated figures
+├── example/         # Usage examples and reproducible workflows
+└── README.md        # Project description
+
