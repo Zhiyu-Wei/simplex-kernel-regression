@@ -1,7 +1,8 @@
 # simplex-kernel-regression
 
-This repository contains the R code accompanying my paper **_Kernel Regression with Simplex Predictors_**.  
-It includes implementations of several kernel-based estimators for compositional data, bandwidth selection procedures, simulation experiments, and visualization tools for simplex-valued covariates.
+This repository is organized into three main components to separate reusable functions, visualization scripts, and reproducible examples.  
+Several scripts and development files are maintained in additional branches (such as **R** and **figures**).  
+If a specific file is not present in the main branch, please check these branches for the latest version.
 
 ---
 
