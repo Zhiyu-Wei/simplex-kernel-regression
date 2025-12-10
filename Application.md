@@ -25,8 +25,10 @@ colnames(finaldata)=c("y","x1","x2","x3","z1","z2")
 n <- nrow(finaldata)
 draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
 ```
+<div align="center">
 ![Figure1](figures/ori-plot.png)
 *Figure 1: Observed data.*
+</div>
 The bandwidth parameter $h$ was selected using the leave-one-out cross-validation criterion,
 
 $$
