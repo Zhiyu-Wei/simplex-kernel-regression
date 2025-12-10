@@ -50,6 +50,31 @@ The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 
 Then, using this selected bandwidth $\hat{h}$, we applied the LLD estimator on the simplex to visualize the fitted relationship and compared its performance with that of the linear model.
 
+```r
+#LLDK
+composition_LL_kernel_smoother(data2,obj,0.005,h,original.data=data2,boundary.color="red")
+#linear model
+resolution<-0.005
+Lmin <- min(data2[,1])
+Rmin <- min(data2[,2])
+Tmin <- min(data2[,3])
+
+grid_points <- expand.grid(
+  x = seq(0, 1, by = resolution),
+  y = seq(0, 1, by = resolution)
+)
+grid_points$z <- 1 - grid_points$x - grid_points$y
+
+grid_points <- subset(grid_points,x > Lmin & x < 1-Rmin-Tmin&y > Rmin & y < 1-Lmin-Tmin&z > Tmin & z < 1-Lmin-Rmin)
+colnames(grid_points)<-c("x1","x2","x3")
+
+model <- lm(y~x1+x2+x3,data=finaldata)
+
+pred.lm <- predict(model,newdata=grid_points)
+colnames(grid_points)<-colnames(data2)
+draw_composition_plot(grid_points,pred.lm,boundary.color="red",original.data=data2,show_boundary = TRUE)
+```
+
 <p align="center">
   <img src="figures/WLS ori alp=0.png" width="350">
   <img src="figures/Linear.png" width="350">
