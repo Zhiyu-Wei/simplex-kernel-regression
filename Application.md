@@ -26,9 +26,13 @@ n <- nrow(finaldata)
 draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
 ```
 <div align="center">
-![Figure1](figures/ori-plot.png)
+<img src="figures/ori-plot.png" width="600">
 *Figure 1: Observed data.*
 </div>
+
+<img src="figures/observed_education_simplex.png" width="600">
+
+
 The bandwidth parameter $h$ was selected using the leave-one-out cross-validation criterion,
 
 $$
