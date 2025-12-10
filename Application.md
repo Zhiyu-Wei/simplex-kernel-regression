@@ -30,7 +30,6 @@ draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
 *Figure 1: Observed data.*
 </div>
 
-<img src="figures/observed_education_simplex.png" width="600">
 
 
 The bandwidth parameter $h$ was selected using the leave-one-out cross-validation criterion,
@@ -43,7 +42,10 @@ which yielded an optimal value of approximately $\hat{h} = 0.0786$ when the Diri
 
 The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 
-![Figure2](figures/LLDbestCV.png)
+<div align="center">
+<img src="figures/LLDbestCV.png" width="600">
+*Figure 2: Plot of the leave-one-out cross-validation as a function of the bandwidth $h$.*
+</div>
 
 Then, using this selected bandwidth $\hat{h}$, we applied the LLD estimator on the simplex to visualize the fitted relationship and compared its performance with that of the linear model.
 
