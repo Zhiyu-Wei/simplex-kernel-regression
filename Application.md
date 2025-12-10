@@ -51,8 +51,8 @@ The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 Then, using this selected bandwidth $\hat{h}$, we applied the LLD estimator on the simplex to visualize the fitted relationship and compared its performance with that of the linear model.
 
 <p align="center">
-  <img src="figures/observed_education_simplex.png" width="350">
-  <img src="figures/LLD_fit_surface.png" width="350">
+  <img src="figures/WLS ori alp=0.png" width="350">
+  <img src="figures/Linear.png" width="350">
   <br>
   <em>
     Figure 3: (Left) presents the fitted surface from Dirichlet kernel regression, capturing potential nonlinear
