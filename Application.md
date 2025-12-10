@@ -92,7 +92,8 @@ To formally evaluate whether nonlinear modeling improves the explanatory perform
 **Table1** presents the BLRT results for three nested models. While adding linear compositional covariates **W1** vs **W2** does not yield a significant improvement, incorporating a nonparametric component **W3** leads to a significantly better fit when compared to both **W1** and **W2**.
 
 <p align="center">
-<strong>Table 1. BLRT results for model selection on real data.</strong>
+<strong>Table 1. BLRT results for model selection on real data.</strong> 
+  <br>
 <strong>The test evaluates whether more flexible models provide a significantly improved fit.</strong>
 </p>
 
