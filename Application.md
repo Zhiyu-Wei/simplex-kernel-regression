@@ -101,6 +101,14 @@ model.2 <- lm(y ~ z1 + z2+ x1 + x2 + x3 - 1, data = finaldata)
 lrt_result <- anova(model.1, model.2, test = "LRT")
 p.m1m2<-lrt_result$`Pr(>Chi)`[2]
 #M1 vs M3
+X_kern_train <- as.matrix(data2[, 1:3])   # x1,x2,x3
+X_loc_train  <- as.matrix(data2[, 1:2])   # x1,x2
+Sij          <- build_S_locallinear_dirichlet(      # in-sample S (如果你有前面的版本)
+  X_kern = X_kern_train,
+  X_loc  = X_loc_train,
+  alpha  = alp,
+  h      = h
+)
 n=nrow(finaldata)
 Sij <-Sij_LL
 I <- diag(n)
@@ -180,4 +188,90 @@ print(c(p.m1m2,p.m1m3,p.m2m3))
     <td>Yes</td>
   </tr>
 </table>
+
+Based on these results, we selected **W3** as the final specification. As a partial linear model, **W3** combines kernel-smoothed effects for compositional covariates with linear trust variables, offering a flexible yet interpretable framework for modeling the data structure.
+
+## Analysis and Interpretation
+
+Having selected the partial linear model **W3** as the best-fitting specification, we now examine its components to interpret the effects of both institutional trust and educational composition on vaccine side effect concerns.
+
+This model includes two parts: a linear component for trust-related covariates, and a nonparametric surface for the compositional education variables estimated via LLD regression. We present the estimated coefficients for the linear terms and visualize the fitted residual surface to gain insight into the nonlinear structure associated with education levels.
+
+### Linear Component: Institutional Trust
+
+**Table2** presents the estimated coefficients for the linear covariates in the partial linear model. Although both institutional trust and perceived corruption show negative associations with concern about side effects, neither effect reaches statistical significance at the 5% level. This suggests that, after accounting for nonlinear variation due to educational composition, the direct linear influence of trust-related variables on concern about vaccine side effects is limited in this dataset.
+
+```r
+Wmatrix <- model.matrix(~ z1 + z2 -1, data = finaldata)
+I <- diag(n)
+Betahat <- solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix) %*%
+  t(Wmatrix) %*% (I - Sij) %*% obj
+Muhat   <- Sij %*% (obj - Wmatrix %*% Betahat)
+
+pred.obj <- Wmatrix %*% Betahat + Muhat
+RSS_1_M3 <- sum((obj - pred.obj)^2)
+
+# Step 1: Effective degrees of freedom for kernel part
+edf_m <- sum(diag(Sij))  # trace(S)
+
+# Step 2: Estimate sigma^2
+p <- ncol(Wmatrix)
+sigma2_hat <- RSS_1_M3 / (n - edf_m - p)
+
+# Step 3: Variance-covariance matrix of Betahat
+Var_Beta <- sigma2_hat * solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix)
+
+# Step 4: Standard errors
+SE_Beta <- sqrt(diag(Var_Beta))
+
+Coef = as.vector(Betahat)
+SE = sqrt(diag(Var_Beta))
+df = n - edf_m - length(Coef)
+
+t_stat = Coef / SE
+p_value = 2 * (1 - pt(abs(t_stat), df))
+
+result <- data.frame(
+  Estimate = round(Coef,3),
+  Std.Error = round(SE,3),
+  t.value = round(t_stat,3),
+  p.value = round(p_value,3)
+)
+#linear covariate
+print(result)
+```
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Covariate</th>
+      <th>Estimate</th>
+      <th>Std. Error</th>
+      <th>t value</th>
+      <th>p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Institutional Trust</td>
+      <td>-13.146</td>
+      <td>11.857</td>
+      <td>-1.109</td>
+      <td>0.272</td>
+    </tr>
+    <tr>
+      <td>Perceived Corruption</td>
+      <td>-5.870</td>
+      <td>10.191</td>
+      <td>-0.567</td>
+      <td>0.567</td>
+    </tr>
+  </tbody>
+</table>
+<em>
+Table 2: Estimated coefficients, standard errors, and p-values for the linear
+component in the partial linear model (M3).
+</em>
+</p>
+
 
