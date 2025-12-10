@@ -86,3 +86,18 @@ observed in the data.
   </em>
 </p>
 
+## Model selection
+To formally evaluate whether nonlinear modeling improves the explanatory performance on real data, we performed pairwise model comparisons using the bootstrap likelihood ratio test (BLRT). This procedure tests whether including linear or kernel-smoothed compositional terms significantly enhances model fit relative to simpler alternatives.
+
+**Table1** presents the BLRT results for three nested models. While adding linear compositional covariates **W1** vs **W2** does not yield a significant improvement, incorporating a nonparametric component **W3** leads to a significantly better fit when compared to both **W1** and **W2**.
+
+**Table 1. BLRT results for model selection on real data.**  
+The test evaluates whether more flexible models provide a significantly improved fit.  
+The model **W3**, which incorporates a nonparametric component, was selected as the best-fitting model.
+
+| **Reduced Model** | **Full Model** | **p-value** | **Reject $H_0$** |
+|------------------|---------------|------------|-----------------|
+| **W1** | **W2** | 0.232 | No  |
+| **W1** | **W3** | 0.026 | Yes |
+| **W2** | **W3** | 0.012 | Yes |
+
