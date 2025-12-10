@@ -273,5 +273,10 @@ component in the partial linear model (M3).</strong>
   </tbody>
 </table>
 
+### Nonparametric Component: Educational Composition
+
+To visualize the nonlinear contribution of educational composition, we plot the estimated function $m(x)$ over the simplex using a ternary diagram in **Figure4**. This surface represents the residual effect of compositional covariates on concern about vaccine side effects, after controlling for institutional trust via the linear component.
+
+Each point on the simplex corresponds to a particular distribution of educational attainment across three levels: secondary, four-year degree, and postgraduate. The color scale indicates the magnitude of the estimated effect at each composition, with higher values reflecting stronger concern unexplained by trust variables.
 
 
