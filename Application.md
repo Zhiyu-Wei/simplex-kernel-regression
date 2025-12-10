@@ -90,7 +90,7 @@ observed in the data.
 To formally evaluate whether nonlinear modeling improves the explanatory performance on real data, we performed pairwise model comparisons using the bootstrap likelihood ratio test (BLRT). This procedure tests whether including linear or kernel-smoothed compositional terms significantly enhances model fit relative to simpler alternatives.
 
 ˋˋˋr
-# M1 vs M2
+#M1 vs M2
 model.1 <- lm(y ~ z1 + z2, data = finaldata)
 #summary(model.1)
 #deviance(model.1)
@@ -99,12 +99,12 @@ model.2 <- lm(y ~ z1 + z2+ x1 + x2 + x3 - 1, data = finaldata)
 #deviance(model.2)
 lrt_result <- anova(model.1, model.2, test = "LRT")
 p.m1m2<-lrt_result$`Pr(>Chi)`[2]
-# M1 vs M3
+#M1 vs M3
 n=nrow(finaldata)
 Sij <-Sij_LL
 I <- diag(n)
 Wmatrix <- model.matrix(~ z1 + z2 -1, data = finaldata)
-# Model 3 fit (semi-parametric)
+#Model 3 fit (semi-parametric)
 Betahat <- solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix) %*% t(Wmatrix) %*% (I - Sij) %*% obj
 Muhat <- Sij %*% (obj - Wmatrix %*% Betahat)
 pred.obj <- Wmatrix %*% Betahat + Muhat
@@ -129,7 +129,7 @@ lambda_boot <- foreach(b = 1:B, .combine = c,.packages = "MASS") %dopar% {
 }
 p.m1m3 <- (1 + sum(lambda_boot >= lambda_obs_M1M3)) / (B + 1)
 
-# M2 vs M3
+#M2 vs M3
 lambda_obs_M2M3 <- n * log(deviance(model.2) / RSS_1_M3)
 res.1 <- residuals(model.2)
 pred.1 <- fitted(model.2)
