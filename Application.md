@@ -27,4 +27,13 @@ draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
 ```
 ![Figure1](figures/ori-plot.png)
 
+The bandwidth parameter $h$ was selected using the leave-one-out cross-validation criterion,
+
+$$
+\hat{h} = \arg\min_{h \in (0,\infty)} \mathrm{CV}(h),
+$$
+
+which yielded an optimal value of approximately $\hat{h} = 0.0786$ when the Dirichlet kernel was used with tuning parameter $a = 0$. The choice of $a = 0$ is motivated by empirical performance: for this dataset, the estimator with $a = 0$ yields a smaller MSE compared to $a = 1$, and it also leads to more statistically decisive results in the subsequent model selection analysis.  
+
+The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 
