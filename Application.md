@@ -37,3 +37,6 @@ which yielded an optimal value of approximately $\hat{h} = 0.0786$ when the Diri
 
 The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 
+![Figure2](figures/LLDbestCV.png)
+
+
