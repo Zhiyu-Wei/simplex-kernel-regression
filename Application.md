@@ -1,6 +1,6 @@
 # Application on WHOdataset
 
-##Data description
+## Data description
 
 During the COVID-19 pandemic, a widely discussed concern was whether educational attainment influenced people's hesitancy about vaccine side effects. To investigate this relationship, we utilized data from the \textit{2021 WHO Health Inequality Data Repository}, which provides the proportion of individuals at different education levels for each country. Since these values represent population shares, we treated them as compositional data, selecting three representative categories: 
 at least secondary education, a four-year degree, and postgraduate education.
@@ -10,7 +10,7 @@ After merging these sources, our final dataset consists of 72 countries, each ch
 
 To explore potential nonlinear relationships between education compositions and side effect concerns, we visualize the data and model fits in Figure1. Based on the preceding simulation study, the LLD estimator demonstrates clear advantages when the data contain a substantial proportion of observations near the boundary of the simplex. As shown in Figure~\ref{fig:ObservedData}, the compositional component corresponding to Postgraduate education exhibits relatively low values (approximately 0.02–0.09), indicating that many observations lie close to the boundary. For this reason, we adopt the LLD method for the subsequent analysis.
 
-'''r
+```r
 library(doParallel)
 library(ggplot2)
 library(viridis)
@@ -24,7 +24,7 @@ finaldata <- cbind(obj,data2,data1)
 colnames(finaldata)=c("y","x1","x2","x3","z1","z2")
 n <- nrow(finaldata)
 draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
-'''r
-'![Figure1](example/figures/concerned-plot.png)'
+```r
+![Figure1](example/figures/concerned-plot.png)
 
 
