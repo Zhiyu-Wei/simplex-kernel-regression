@@ -241,7 +241,11 @@ result <- data.frame(
 print(result)
 ```
 <p align="center">
-<table>
+<strong>Table 2. Estimated coefficients, standard errors, and p-values for the linear
+component in the partial linear model (M3).</strong>
+</p>
+
+<table align="center">
   <thead>
     <tr>
       <th>Covariate</th>
@@ -254,24 +258,20 @@ print(result)
   <tbody>
     <tr>
       <td>Institutional Trust</td>
-      <td>-13.146</td>
-      <td>11.857</td>
-      <td>-1.109</td>
-      <td>0.272</td>
+      <td align="center">-13.146</td>
+      <td align="center">11.857</td>
+      <td align="center">-1.109</td>
+      <td align="center">0.272</td>
     </tr>
     <tr>
       <td>Perceived Corruption</td>
-      <td>-5.870</td>
-      <td>10.191</td>
-      <td>-0.567</td>
-      <td>0.567</td>
+      <td align="center">-5.870</td>
+      <td align="center">10.191</td>
+      <td align="center">-0.567</td>
+      <td align="center">0.567</td>
     </tr>
   </tbody>
 </table>
-<em>
-Table 2: Estimated coefficients, standard errors, and p-values for the linear
-component in the partial linear model (M3).
-</em>
-</p>
+
 
 
