@@ -279,6 +279,9 @@ To visualize the nonlinear contribution of educational composition, we plot the 
 
 Each point on the simplex corresponds to a particular distribution of educational attainment across three levels: secondary, four-year degree, and postgraduate. The color scale indicates the magnitude of the estimated effect at each composition, with higher values reflecting stronger concern unexplained by trust variables.
 
+```r
+composition_LL_kernel_smoother(data2,Muhat,0.005,h,original.data=data2,boundary.color="red")
+```
 <p align="center">
   <img src="figures/WLS residual alp=0.png" width="600">
   <br>
