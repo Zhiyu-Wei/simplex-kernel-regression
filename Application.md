@@ -51,3 +51,4 @@ The figure below shows the graph of $CV(h)$ as a function of the bandwidth $h$.
 Then, using this selected bandwidth $\hat{h}$, we applied the LLD estimator on the simplex to visualize the fitted relationship and compared its performance with that of the linear model.
 
 
+
