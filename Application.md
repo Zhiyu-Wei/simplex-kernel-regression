@@ -89,12 +89,70 @@ observed in the data.
 ## Model selection
 To formally evaluate whether nonlinear modeling improves the explanatory performance on real data, we performed pairwise model comparisons using the bootstrap likelihood ratio test (BLRT). This procedure tests whether including linear or kernel-smoothed compositional terms significantly enhances model fit relative to simpler alternatives.
 
+ˋˋˋr
+# M1 vs M2
+model.1 <- lm(y ~ z1 + z2, data = finaldata)
+#summary(model.1)
+#deviance(model.1)
+model.2 <- lm(y ~ z1 + z2+ x1 + x2 + x3 - 1, data = finaldata)
+#summary(model.2)
+#deviance(model.2)
+lrt_result <- anova(model.1, model.2, test = "LRT")
+p.m1m2<-lrt_result$`Pr(>Chi)`[2]
+# M1 vs M3
+n=nrow(finaldata)
+Sij <-Sij_LL
+I <- diag(n)
+Wmatrix <- model.matrix(~ z1 + z2 -1, data = finaldata)
+# Model 3 fit (semi-parametric)
+Betahat <- solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix) %*% t(Wmatrix) %*% (I - Sij) %*% obj
+Muhat <- Sij %*% (obj - Wmatrix %*% Betahat)
+pred.obj <- Wmatrix %*% Betahat + Muhat
+RSS_1_M3 <- sum((obj - pred.obj)^2)
+
+B=1000
+nCores <- detectCores() - 8
+cl <- makeCluster(nCores)
+registerDoParallel(cl)
+
+lambda_obs_M1M3 <- n * log(deviance(model.1) / RSS_1_M3)
+res.1 <- residuals(model.1)
+pred.1 <- fitted(model.1)
+lambda_boot <- foreach(b = 1:B, .combine = c,.packages = "MASS") %dopar% {
+  y.star <- pred.1 + sample(res.1, n, replace = TRUE)
+  RSS_0 <- deviance(lm(y.star ~ z1 + z2, data = finaldata))
+  Betahat <- solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix) %*% t(Wmatrix) %*% (I - Sij) %*% y.star
+  Muhat <- Sij %*% (y.star - Wmatrix %*% Betahat)
+  pred.y <- Wmatrix %*% Betahat + Muhat
+  RSS_1 <- sum((y.star - pred.y)^2)
+  n * log(RSS_0 / RSS_1)
+}
+p.m1m3 <- (1 + sum(lambda_boot >= lambda_obs_M1M3)) / (B + 1)
+
+# M2 vs M3
+lambda_obs_M2M3 <- n * log(deviance(model.2) / RSS_1_M3)
+res.1 <- residuals(model.2)
+pred.1 <- fitted(model.2)
+lambda_boot <- foreach(b = 1:B, .combine = c,.packages ="MASS") %dopar% {
+  y.star <- pred.1 + sample(res.1, n, replace = TRUE)
+  RSS_0 <- deviance(lm(y.star ~ z1 + z2+ x1 + x2 + x3 - 1, data = finaldata))
+  Betahat <- solve(t(Wmatrix) %*% (I - Sij) %*% Wmatrix) %*% t(Wmatrix) %*% (I - Sij) %*% y.star
+  Muhat <- Sij %*% (y.star - Wmatrix %*% Betahat)
+  pred.y <- Wmatrix %*% Betahat + Muhat
+  RSS_1 <- sum((y.star - pred.y)^2)
+  n * log(RSS_0 / RSS_1)
+}
+p.m2m3 <- (1 + sum(lambda_boot >= lambda_obs_M2M3)) / (B + 1)
+
+stopCluster(cl)
+print(c(p.m1m2,p.m1m3,p.m2m3))
+
+ˋˋˋ
+
 **Table1** presents the BLRT results for three nested models. While adding linear compositional covariates **W1** vs **W2** does not yield a significant improvement, incorporating a nonparametric component **W3** leads to a significantly better fit when compared to both **W1** and **W2**.
 
 <p align="center">
 <strong>Table 1. BLRT results for model selection on real data.</strong> 
-  <br>
-<strong>The test evaluates whether more flexible models provide a significantly improved fit.</strong>
 </p>
 
 <table align="center">
