@@ -96,9 +96,33 @@ The test evaluates whether more flexible models provide a significantly improved
 The model **W3**, which incorporates a nonparametric component, was selected as the best-fitting model.
 
 <p align="center">
-  | **Reduced Model** | **Full Model** | **p-value** | **Reject $H_0$** |
-|------------------|---------------|------------|-----------------|
-| **W1** | **W2** | 0.232 | No  |
-| **W1** | **W3** | 0.026 | Yes |
-| **W2** | **W3** | 0.012 | Yes |
+<strong>Table 1. BLRT results for model selection on real data</strong>
 </p>
+
+<table align="center">
+  <tr>
+    <th>Reduced Model</th>
+    <th>Full Model</th>
+    <th>p-value</th>
+    <th>Reject H<sub>0</sub></th>
+  </tr>
+  <tr>
+    <td><strong>W1</strong></td>
+    <td><strong>W2</strong></td>
+    <td>0.232</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><strong>W1</strong></td>
+    <td><strong>W3</strong></td>
+    <td>0.026</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><strong>W2</strong></td>
+    <td><strong>W3</strong></td>
+    <td>0.012</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
