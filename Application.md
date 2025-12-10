@@ -2,13 +2,13 @@
 
 ## Data description
 
-During the COVID-19 pandemic, a widely discussed concern was whether educational attainment influenced people's hesitancy about vaccine side effects. To investigate this relationship, we utilized data from the \textit{2021 WHO Health Inequality Data Repository}, which provides the proportion of individuals at different education levels for each country. Since these values represent population shares, we treated them as compositional data, selecting three representative categories: 
-at least secondary education, a four-year degree, and postgraduate education.
-To further account for the role of institutional trust, we referenced the recent findings by \citet{Leblang2024}, who emphasized that trust in institutions significantly affects vaccination campaign outcomes. Guided by this insight, we incorporated two variables from the \textit{World Happiness Report (2021)}: index of institutional trust and perceptions of corruption.
+During the COVID-19 pandemic, a widely discussed question was whether educational attainment influenced people's hesitancy about vaccine side effects. To investigate this relationship, we used data from the 2021 WHO Health Inequality Data Repository, which reports the proportion of individuals at different education levels for each country. Since these values represent population shares, we treated them as compositional data and focused on three representative categories: at least secondary education, a four-year degree, and postgraduate education.
 
-After merging these sources, our final dataset consists of 72 countries, each characterized by compositional educational indicators and trust-related covariates. The response variable is defined as the proportion of unvaccinated individuals who reported concerns about side effects.
+To incorporate the potential role of institutional trust, we also included two variables from the World Happiness Report (2021): institutional trust and perceptions of corruption. Earlier studies have suggested that institutional trust plays an important role in shaping public responses to vaccination campaigns, and these variables help capture that dimension.
 
-To explore potential nonlinear relationships between education compositions and side effect concerns, we visualize the data and model fits in Figure1. Based on the preceding simulation study, the LLD estimator demonstrates clear advantages when the data contain a substantial proportion of observations near the boundary of the simplex. As shown in Figure~\ref{fig:ObservedData}, the compositional component corresponding to Postgraduate education exhibits relatively low values (approximately 0.02–0.09), indicating that many observations lie close to the boundary. For this reason, we adopt the LLD method for the subsequent analysis.
+After merging these sources, the final dataset contains 72 countries, each described by compositional educational indicators and trust-related covariates. The response variable is the proportion of unvaccinated individuals who reported concerns about side effects.
+
+To explore possible nonlinear relationships between education compositions and concerns about side effects, we visualize the data and model fits in the figure below. Prior simulation studies showed that the local linear Dirichlet (LLD) estimator performs particularly well when compositional observations lie near the boundary of the simplex. As seen in the observed data, the proportion corresponding to postgraduate education is relatively small (approximately 0.02–0.09), indicating that many observations lie close to the boundary. Motivated by this feature, we adopt the LLD method for the subsequent analysis.
 
 ```r
 library(doParallel)
