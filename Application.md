@@ -95,9 +95,10 @@ To formally evaluate whether nonlinear modeling improves the explanatory perform
 The test evaluates whether more flexible models provide a significantly improved fit.  
 The model **W3**, which incorporates a nonparametric component, was selected as the best-fitting model.
 
-| **Reduced Model** | **Full Model** | **p-value** | **Reject $H_0$** |
+<p align="center">
+  | **Reduced Model** | **Full Model** | **p-value** | **Reject $H_0$** |
 |------------------|---------------|------------|-----------------|
 | **W1** | **W2** | 0.232 | No  |
 | **W1** | **W3** | 0.026 | Yes |
 | **W2** | **W3** | 0.012 | Yes |
-
+</p>
