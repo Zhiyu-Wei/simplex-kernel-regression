@@ -24,7 +24,7 @@ finaldata <- cbind(obj,data2,data1)
 colnames(finaldata)=c("y","x1","x2","x3","z1","z2")
 n <- nrow(finaldata)
 draw_composition_plot(data2,obj,boundary.color="red",original.data=data2)
-```r
+```
 ![Figure1](example/figures/concerned-plot.png)
 
 
