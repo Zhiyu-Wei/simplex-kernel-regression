@@ -20,6 +20,12 @@ Each plot corresponds to one of the true functions \( m_1, m_2, m_3, m_4 \), and
 #### **m1: Linear combination of simplex components**
 ![m1](m1.png)
 
+<p align="center">
+  <img src="m1.png" width="600">
+  <br>
+</p>
+
+
 #### **m2: Logarithmic surface**
 ![m2](m2.png)
 
