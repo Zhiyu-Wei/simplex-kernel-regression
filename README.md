@@ -8,6 +8,8 @@ We focus on three main questions:
 ---
 
 ### (1) Effect of the centering parameter \(a\)
+[👉 Click here: Effect of a & Comparison](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/example/Effect-of-a-%26-Comparison)
+
 
 We first investigate how the centering parameter \(a\) affects semi-parametric estimation when using Dirichlet-based kernel smoothers.
 
