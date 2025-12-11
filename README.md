@@ -18,7 +18,6 @@ Each plot corresponds to one of the true functions \( m_1, m_2, m_3, m_4 \), and
 ### **Figures (generated from the code `plot_m1-m4.R`):**
 
 #### **m1: Linear combination of simplex components**
-![m1](m1.png)
 
 <p align="center">
   <img src="m1.png" width="600">
@@ -27,10 +26,21 @@ Each plot corresponds to one of the true functions \( m_1, m_2, m_3, m_4 \), and
 
 
 #### **m2: Logarithmic surface**
-![m2](m2.png)
+
+<p align="center">
+  <img src="m2.png" width="600">
+  <br>
+</p>
 
 #### **m3: Interaction surface \(x_1 x_2\)**
-![m3](m3.png)
+<p align="center">
+  <img src="m3.png" width="600">
+  <br>
+</p>
 
 #### **m4: Nonlinear oscillating structure**
-![m4](m4.png)
+
+<p align="center">
+  <img src="m4.png" width="600">
+  <br>
+</p>
