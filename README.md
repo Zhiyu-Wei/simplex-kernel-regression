@@ -30,6 +30,8 @@ This analysis highlights how the choice of \(a\) affects Dirichlet-type smoother
 ---
 
 ### (2) Comparison of smoothing methods
+[👉 Click here: Effect of a & Comparison](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/example/Effect-of-a-%26-Comparison)
+
 
 Using the same simulation settings, we compare three smoothing approaches:
 
@@ -47,6 +49,8 @@ This comparison shows how the different smoothing methods behave under both line
 ---
 
 ### (3) Model selection performance of the BLRT
+[👉 Click here: BLRT](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/example/BLRT)
+
 
 Finally, we evaluate how well the BLRT distinguishes between competing models across different data-generating conditions.
 
