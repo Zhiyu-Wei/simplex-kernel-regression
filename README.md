@@ -20,7 +20,8 @@ In this work, we compare three popular kernel approaches, Aitchison’s logratio
 
 This repository is organized into three main components to separate reusable functions, visualization scripts, and reproducible examples.
 
-### **R**
+### **R** [👉 Click here: R code](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/R)
+
 This folder contains all core R functions used in the project, including:
 
 - Kernel estimation methods (Dirichlet kernel, logratio-based estimator, and local linear Dirichlet kernel)
@@ -29,7 +30,7 @@ This folder contains all core R functions used in the project, including:
 
 These files provide the essential methodological tools used across the analyses.
 
-### **figures**
+### **figures** [👉 Click here: figures](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/figure)
 This folder includes:
 
 - Scripts used to generate figures referenced in the paper
@@ -37,7 +38,7 @@ This folder includes:
 
 Files in this directory focus on graphical diagnostics and visual demonstrations.
 
-### **example**
+### **example** [👉 Click here: Simulation Results & Application](https://github.com/Zhiyu-Wei/simplex-kernel-regression/tree/example)
 This folder contains reproducible workflows and applied scripts, such as:
 
 - Simulation study code evaluating estimator performance
