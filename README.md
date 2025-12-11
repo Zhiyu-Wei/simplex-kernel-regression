@@ -50,8 +50,8 @@ Finally, we evaluate how well the BLRT distinguishes between competing models ac
 
 We vary two types of signal strength:
 
-1. the linear part, \( \mathbf z_i^{\top}\boldsymbol\beta \), and  
-2. the nonlinear part, \( \mu(\mathbf x_i) \).
+1. the linear part, $ \mathbf z_i^{\top}\boldsymbol\beta $, and  
+2. the nonlinear part, $ \mu(\mathbf x_i) $.
 
 By adjusting these signal levels, we observe how the BLRT responds as model complexity changes and how effectively it identifies the correct specification.
 
