@@ -14,7 +14,7 @@ To explore possible nonlinear relationships between education compositions and c
 library(doParallel)
 library(ggplot2)
 library(viridis)
-source(""https://raw.githubusercontent.com/Zhiyu-Wei/simplex-kernel-regression/R/application.R")
+source("https://raw.githubusercontent.com/Zhiyu-Wei/simplex-kernel-regression/R/application.R")
 url <- "https://raw.githubusercontent.com/Zhiyu-Wei/simplex-kernel-regression/example/WHOdataset.csv"
 ds <- read.csv(url)
 obj=ds[,3]
